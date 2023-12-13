@@ -2,6 +2,7 @@
 <html lang="en-US" data-menu="leftalign">
 
 <?php
+require 'koneksi.php';
     require 'header.php';
     ?>
 <body class="home page-template-default page page-id-3075 woocommerce-no-js ppb_enable">
@@ -39,7 +40,7 @@
     require 'navbar.php';
     ?>
 
-<div id="page_caption" class="hasbg parallax  withtopbar  " style="background-image:url(users/assets/upload/driver-2.jpg);">
+<div id="page_caption" class="hasbg parallax  withtopbar  " style="background-image:url(users/assets/images/hero1.jpg);">
 
 </div>
 
@@ -58,13 +59,19 @@
 
                 <div id="portfolio_filter_wrapper" class="gallery grid three_cols portfolio-content section content clearfix" data-columns="3">
 
+                            <?php
+                            $sql = mysqli_query($conn , "SELECT * FROM tbl_mobil");
+                            
+                            while ($d = mysqli_fetch_array($sql)) {
+                            ?>
                     <div class="element grid classic2_cols animated2">
 
-                        <div class="one_half gallery2 grid static filterable portfolio_type themeborder" data-id="post-2" style="background-image:url(users/assets/upload/bmw-3-series-sedan-wallpaper-1920x1200-05-700x466.jpg);">
-                            <a class="car_image" href="#"></a>
+
+                        <div class="one_half gallery2 grid static filterable portfolio_type themeborder" data-id="post-2" style="background-image:url(admin/assets/img/<?= $d['gambar'] ?>);">
+                            <a class="car_image" href="detail.php?id=<?= $d['id'] ?>"></a>
                             <div class="portfolio_info_wrapper">
                                 <div class="car_attribute_wrapper">
-                                    <h4>BMW 3 Series</h4>
+                                    <h4><?= $d['nama'] ?></h4>
 
                                     <div class="car_attribute_wrapper_icon">
                                         <div class="one_fourth">
@@ -90,13 +97,16 @@
                                 </div>
                                 <div class="car_attribute_price">
                                     <div class="car_attribute_price_day two_cols">
-                                        <span class="single_car_currency">$</span><span class="single_car_price">64</span> <span class="car_unit_day">Per Day</span>
+                                        <span class="single_car_currency">Rp</span><span class="single_car_price"><?= number_format($d['harga'])  ?></span> <span class="car_unit_day">Per Day</span>
                                     </div>
                                 </div>
                                 <br class="clear" />
                             </div>
                         </div>
                     </div>
+
+                    <?php } ?>
+
                     
 
                 </div>

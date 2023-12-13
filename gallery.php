@@ -2,6 +2,7 @@
 <html lang="en-US" data-menu="leftalign">
 
 <?php
+    require 'koneksi.php';
     require 'header.php';
     ?>
 <body class="home page-template-default page page-id-3075 woocommerce-no-js ppb_enable">
@@ -60,18 +61,26 @@
 
                         <div id="portfolio_filter_wrapper" class="gallery four_cols portfolio-content section content clearfix" data-columns="4">
 
+                            <?php
+                            $sql = mysqli_query($conn , "SELECT * FROM tbl_mobil");
+                            
+                            while ($d = mysqli_fetch_array($sql)) {
+                            ?>
                             <div class="element grid classic4_cols">
 
                                 <div class="one_fourth gallery4 static filterable gallery_type animated1" data-id="post-1">
 
                                     <a data-caption="The road to success and the road to failure are almost exactly the same" class="fancy-gallery" href="users/assets/upload/2016-Lexus-RX-350-BM-01.jpg">
-                                        <img src="users/assets/upload/2016-Lexus-RX-350-BM-01-500x500.jpg" alt="" />
+                                        <img height="50" width="50" src="admin/assets/img/<?= $d['gambar'] ?>" alt="" />
 
                                     </a>
 
                                 </div>
 
                             </div>
+
+                            <?php } ?>
+
 
                         </div>
                     </div>

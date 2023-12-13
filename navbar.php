@@ -38,9 +38,6 @@
                                     <li class="menu-item menu-item-has-children "><a href="about.php">About us</a>
                                       
                                     </li>
-                                    <li class="menu-item menu-item-has-children "><a href="service.php">Service</a>
-                                     
-                                    </li>
                                     <li class="menu-item menu-item-has-children"><a href="contact.php">Contact</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children"><a href="gallery.php">Gallery</a>
