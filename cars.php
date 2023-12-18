@@ -97,7 +97,7 @@ require 'koneksi.php';
                                 </div>
                                 <div class="car_attribute_price">
                                     <div class="car_attribute_price_day two_cols">
-                                        <span class="single_car_currency">Rp</span><span class="single_car_price"><?= number_format($d['harga'])  ?></span> <span class="car_unit_day">Per Day</span>
+                                        <span class="single_car_currency"></span><span class="single_car_price"></span> <span class="car_unit_day"></span>
                                     </div>
                                 </div>
                                 <br class="clear" />

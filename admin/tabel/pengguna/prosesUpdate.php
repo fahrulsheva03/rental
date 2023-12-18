@@ -17,7 +17,7 @@ if(isset($_POST['edit'])){
     }
 
     $sql = mysqli_query($koneksi , "UPDATE tbl_akun SET
-    nama = '$nama',
+    nama_user = '$nama',
     username = '$username',
     email = '$email',
     alamat = '$alamat',

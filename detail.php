@@ -6,6 +6,15 @@
 require 'koneksi.php';
 require 'header.php';
 
+if(!isset($_SESSION['login'])){
+    echo "
+    <script>
+    alert('anda belum login')
+    location = 'index.php'
+    </script>
+    ";
+}
+
 $id = $_GET['id'];
 
 $sql = mysqli_query($conn,"SELECT * FROM tbl_mobil WHERE id = $id ");
@@ -127,10 +136,8 @@ $d = mysqli_fetch_assoc($sql);
                                     <div class="right ">
 
 
-                                        <div class="comment_date">January 18, 2017 at 8:12 am</div>
                                         <a rel='nofollow' class='comment-reply-link' href='#'  aria-label='Reply to Jack Dawson'>Reply</a>
                                         <div class="comment_text" />
-                                        <p>Et leggings fanny pack, elit bespoke vinyl art party Pitchfork selfies master cleanse Kickstarter seitan retro. Drinking vinegar stumptown yr pop-up artisan sunt. Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko tempor duis single-origin coffee. Banksy, elit small batch freegan sed.</p>
                                         <div class="comment_rating_wrapper">
                                             <div class="comment_rating_label">Driving</div>
                                             <div class="br-theme-fontawesome-stars-o">

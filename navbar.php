@@ -42,6 +42,13 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children"><a href="gallery.php">Gallery</a>
                                     </li>
+                                    <?php  if(!isset($_SESSION['login'])){ ?>
+                                    <li class="menu-item menu-item-has-children"><a href="login.php">Login</a>
+                                    </li>
+                                    <?php }else{ ?>
+                                    <li class="menu-item menu-item-has-children"><a href="logout.php">Logout</a>
+                                    </li>
+                                    <?php  } ?>
 
                                 </ul>
                             </div>

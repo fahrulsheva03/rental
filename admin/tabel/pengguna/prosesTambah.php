@@ -15,7 +15,7 @@ if(isset($_POST['tambah'])){
     
 
     $sql = mysqli_query($koneksi , "INSERT INTO tbl_akun SET
-    nama = '$nama',
+    nama_user = '$nama',
     username = '$username',
     email = '$email',
     alamat = '$alamat',

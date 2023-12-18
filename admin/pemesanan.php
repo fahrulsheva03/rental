@@ -35,10 +35,11 @@
                       <thead>
                         <tr>
                           <th>Tanggal Pinjam</th>
-                          <th>Tanggal Kembali</th>
+                          <th>Tanggal Jatuh Tempo</th>
                           <th>Denda</th>
                           <th>User</th>
                           <th>Jenis Mobil</th>
+                          <th>Status</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -51,6 +52,10 @@
                           tbl_mobil
                           ON
                           tbl_pesanan.id_mobil = tbl_mobil.id 
+                          JOIN 
+                          tbl_akun
+                          ON
+                          tbl_pesanan.id_user = tbl_akun.id 
                           ");
                           while ($d = mysqli_fetch_array($sql)){
                           ?>
@@ -58,17 +63,21 @@
                         <tr>
                           <td><?= $d['pinjam'] ?></td>
                           <td><?= $d['kembali'] ?></td>
-                          <td><?= $d['denda'] ?></td>
-                          <td><?= $d['id_user'] ?></td>
-                          <td><?= $d['nama'] ?></td>
+                          <td>Rp <?= number_format($d['denda'])  ?></td>
+                          <td><?= $d['username'] ?></td>
+                          <td><?= $d['nama'] ?></td >
+                          <?php if($d['status'] == 0 ){ ?>
+                          <td>DiSewakan</td>
                           <td>
-                            <a href="tabel/merk/update.php?id=<?= $d['id'] ?>">
+                            <a href="kembali.php?id=<?= $d['id_pesanan'] ?>">
                                 <label class="badge badge-warning">Update</label>
                             </a>
-                            <a href="tabel/merk/hapus.php?id=<?= $d['id'] ?>">
-                                <label class="badge badge-danger">Hapus</label>
-                            </a>
-                        </td>
+                          </td>
+                          <?php }else{ ?>
+                          <td>Selesai</td>
+                          <td>Penyewaan Selesai</td>
+                          <?php } ?>
+                        
                         <?php } ?> 
                       </tbody>
                     </table>

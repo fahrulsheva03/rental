@@ -55,7 +55,7 @@
                           ?>
 
                         <tr>
-                          <td><?= $d['nama'] ?></td>
+                          <td><?= $d['nama_user'] ?></td>
                           <td><?= $d['username'] ?></td>
                           <td><?= $d['email'] ?></td>
                           <td><?= $d['alamat'] ?></td>
